@@ -14,7 +14,7 @@ We implemented the publicly available baseline Kang et al. (Unbiased scene graph
 3. Copy and run "generate_tripelts_ground_GQA.py" for GQA in the same directory. It will generate ground truth annotations for testing data in GQA. ("data_rel_ground_vctree_predcls_GQA_full")
 
 
-# Generating samples for BN learning with original training data  
+# Collecting original samples for learning BN  
 ## For Visual Genome 
 1. Go inside folder "Gen_data_evidence_prior\Gen_data_prior\VG"
 2. Run "generate_triplets_training_gt_org.py". It will generate MAT file ("data_rel_ground_training_vg.mat") of GT annotations for VG with the original training samples.
@@ -24,7 +24,7 @@ We implemented the publicly available baseline Kang et al. (Unbiased scene graph
 2. Run "generate_triplets_training_gt_org.py". It will generate MAT file ("data_rel_ground_training_GQA.mat") of GT annotations for GQA with the original training samples. 
 
 
-# Generating samples for BN learning with augmented training data
+# Collecting augmented samples for learning BN  
 ## For Visual Genome
 1. Go inside folder "Gen_data_evidence_prior\Gen_data_prior\VG"
 2. Run "generate_embeddings_for_triplets_vg.py' to generate embeddings of VG triplets and save as "embeddings_rel_val_vg.mat". 
