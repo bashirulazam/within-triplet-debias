@@ -2,7 +2,7 @@
 
 We implemented the publicly available baseline Kang et al. (Unbiased scene graph generation from biased training). The github link for baseline training and testing is https://github.com/KaihuaTang/Scene-Graph-Benchmark.pytorch
 
-# Generating uncertain evidence from baseline model. 
+# Generating uncertain evidence from baseline model
 ## For Visual Genome 
 1. Go to "Gen_data_evidence_prior/Gen_data_evidence/VG" 
 2. Copy "generate_meas_infer_triplet.py" for VG in the run directory of the baseline (see github directory above). It will generate measurement results with associated measurement probabilities for VCTree PredCls of VG testing images ("data_rel_meas_infer_vctree_predcls_vg_full.mat")
