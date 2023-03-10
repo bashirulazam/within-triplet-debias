@@ -15,12 +15,10 @@ for i = test_start:test_end
     mis_tri_gt(1,i)  = 0;
     mis_tri_gt(2,i)  = 0;
     mis_tri_gt(3,i)  = Lg;
-    ground_truth_relations{1,i} = trip_to_rel(ground_rel_data{1,i},dict);
+    %ground_truth_relations{1,i} = trip_to_rel(ground_rel_data{1,i},dict);
     for g = 1:Lg
         
-        if g == 16
-            g
-        end
+   
         gt_tri = ground_rel_data{1,i}(g,:);
         total_ground_truth_relations_all(gt_tri(2),i) = total_ground_truth_relations_all(gt_tri(2),i) + 1;
         %Calculating Accuracy for Measured Relations
@@ -72,7 +70,8 @@ total_gt = sum(mis_tri_gt(3,test_start:test_end));
 
 
 %Mean Recall & Recall 
-acc_rec_meas = mean(correct_relations_measured(test_start:end)./total_ground_truth_relations(test_start:end));
+val_image_no = sum(total_ground_truth_relations(test_start:end)~=0);
+acc_rec_meas = sum(correct_relations_measured(test_start:end)./(total_ground_truth_relations(test_start:end)+eps))/val_image_no;
 %Finding the row where at least one ground truth relation exist
 IA = find(sum(total_ground_truth_relations_all(:,test_start:end),2) ~= 0);
 for i = 1:length(IA)

@@ -2,19 +2,18 @@ function [s,r,o] = VE_infer_exp1_v3(pr_r,pr_r_so,r_sm,r_om,r_rm,sm,rm,om)
 NS = 150;
 NO = 150;
 NR = 50;
+
+top_S = 3;
+top_R = 10;
+top_O = 3;
  
 [~,sorted_sub_inds] = sort(r_sm,'descend');
 [~,sorted_obj_inds] = sort(r_om,'descend');
 [~,sorted_rel_inds] = sort(r_rm,'descend'); 
  
- sm_ind = sorted_sub_inds(1:2);
- om_ind = sorted_obj_inds(1:2);
- rm_ind = sorted_rel_inds(1:20);
-% [~,sm_ind] = find(r_sm(1,:) ~= 0);
-% [~,om_ind] = find(r_om(1,:) ~= 0);
-%  
- 
-
+sm_ind = sorted_sub_inds(1:top_S);
+om_ind = sorted_obj_inds(1:top_O);
+rm_ind = sorted_rel_inds(1:top_R);
 new_r_sm = r_sm(1,sm_ind);
 new_r_sm = new_r_sm/sum(new_r_sm);
 
@@ -28,7 +27,7 @@ r_sm = new_r_sm;
 r_om = new_r_om;
 r_rm = new_r_rm;
  %Inference from the BN 
-cnd_pr = zeros(2,20,2);
+cnd_pr = zeros(top_S,top_R,top_O);
 
  for si = 1:length(sm_ind)
      s = sm_ind(si);
@@ -61,5 +60,10 @@ else
     r = rm;
     o = om;
 end
-%     
+
+
+
+
+
+
     

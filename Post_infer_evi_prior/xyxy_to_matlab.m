@@ -8,4 +8,4 @@ ymax = bbox_in(:,4);
 w   = xmax - xmin;
 h   = ymax - ymin;
 
-bbox_o = [xmin ymin w h];
+bbox_o = [max(xmin,1) max(ymin,1) max(1,w) max(1,h)];
