@@ -1,7 +1,6 @@
-###Training and Testing
+### Training and Testing
 
-### We implemented the publicly available baseline Kang et al. (Unbiased scene graph generation from biased training)
-### The github link for baseline training and testing is https://github.com/KaihuaTang/Scene-Graph-Benchmark.pytorch
+We implemented the publicly available baseline Kang et al. (Unbiased scene graph generation from biased training). The github link for baseline training and testing is https://github.com/KaihuaTang/Scene-Graph-Benchmark.pytorch
 
 ### Generating uncertain evidence/measurement results using baseline model. 
 For Visual Genome 
