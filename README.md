@@ -38,8 +38,7 @@ We implemented the publicly available baseline Kang et al. (Unbiased scene graph
 
 # Learning BN with both original and augmentated samples
 1. Go insider folder "Learn_Prior/"
-2. Run "run_compute_prior.m". It will either generate "BN_prior.mat" (VG) or "BN_prior_GQA.mat" (GQA) with original training samples 
-	or "BN_prior_emb.mat" (VG) or "BN_priors_GQA_emb.mat" (GQA)  with augmented training samples. 
+2. Run "run_compute_prior.m" with  _dataset_ = {'vg', 'gqa'} and _method_ = {'org', 'aug'}. This will create four MAT files: (1) BN_priors_org_vg.mat, (2) BN_priors_aug_vg.mat, (3) BN_priors_org_gqa.mat, and (4) BN_priors_aug_gqa.mat. 
 
 # Performing Inference
 1. Go insider folder "Post_infer_evi_prior/"
