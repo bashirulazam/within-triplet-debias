@@ -4,7 +4,7 @@ We implemented the publicly available baseline Kang et al. (Unbiased scene graph
 
 # Uncertain evidence from baseline model
 
-## You can download our extracted evidence data for VCTree model [here](https://drive.google.com/drive/folders/1-gIr7jz2Jf65mc1gJEcRh3iA0z4xr6TD?usp=share_link). You can also use the following steps for extracting evidence data from the baseline data by yourself.  
+You can download our extracted evidence data for VCTree model [here](https://drive.google.com/drive/folders/1-gIr7jz2Jf65mc1gJEcRh3iA0z4xr6TD?usp=share_link). You can also use the following steps for extracting evidence data from the baseline data by yourself.  
 
 ## For Visual Genome 
 1. Go to "Gen_data_evidence_prior/Gen_data_evidence/VG" 
