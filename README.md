@@ -42,6 +42,6 @@ We implemented the publicly available baseline Kang et al. (Unbiased scene graph
 
 # Performing Inference
 1. Go insider folder "Post_infer_evi_prior/"
-2. You can select the dataset and setting in the "run_post_inference.m". 
+2. You can select the model, setting, and dataset in the "run_post_inference.m". 
 3. Run "run_post_inference.m". It will take the measurements as input and produce inferred triplets with BN learnt from original and augmented samples. 
 	It will also calculate and plot the mean recall improvement. 
