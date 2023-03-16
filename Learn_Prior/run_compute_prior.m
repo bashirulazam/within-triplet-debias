@@ -2,30 +2,27 @@ clear all
 close all
 clc
 
-dataset = "VG"; % or "GQA";
+dataset = "vg"; % or "gqa";
 method = "aug";% or "aug";
+savefile = strcat('..\Post_infer_evi_prior\Prior\BN_priors_',method,'_',dataset,'.mat');
 
-if dataset == "VG"
+if dataset == "vg"
     if method == "org"
         %load the original training samples 
         load('..\Gen_data_evidence_prior\Gen_data_prior\VG\data_rel_ground_training_vg.mat')
-        savefile = 'VG\BN_priors.mat';
     elseif method == "aug"
         %load the augmented training samples 
         load('..\Gen_data_evidence_prior\Gen_data_prior\VG\training_data_vg_emb.mat')
         ground_rel_data = training_triplets;
-        savefile = 'VG\BN_priors_emb.mat';
     end
-elseif dataset == "GQA"
+elseif dataset == "gqa"
     if method == "org"
        %load the original training samples 
-       load('..\Gen_data_evidence_prior\Gen_data_prior\GQA\data_rel_ground_training_GQA.mat')
-       savefile = 'GQA\BN_priors_GQA.mat';
+       load('..\Gen_data_evidence_prior\Gen_data_prior\GQA\data_rel_ground_training_gqa.mat')
     elseif method == "aug"
        %load the augmented training samples
-       load('..\Gen_data_evidence_prior\Gen_data_prior\GQA\training_data_GQA_emb.mat')
+       load('..\Gen_data_evidence_prior\Gen_data_prior\GQA\training_data_gqa_emb.mat')
        ground_rel_data = training_triplets;
-       savefile = 'GQA\BN_priors_emb_GQA.mat';
     end
 end
 
