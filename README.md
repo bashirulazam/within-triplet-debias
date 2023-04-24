@@ -1,6 +1,6 @@
 # Training and Testing
 
-We implemented the publicly available baseline Kang et al. (Unbiased scene graph generation from biased training). The github link for baseline training and testing is https://github.com/KaihuaTang/Scene-Graph-Benchmark.pytorch
+We generate measurements from the publicly available baselines released by Kang et al. (Unbiased scene graph generation from biased training). The github link for baseline training and testing is https://github.com/KaihuaTang/Scene-Graph-Benchmark.pytorch
 
 # Uncertain evidence from baseline model
 
