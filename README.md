@@ -12,7 +12,7 @@ You can download our extracted evidence data for VCTree model [here](https://dri
 3. Copy and run "generate_tripelts_ground.py" for VG in the same dir. It will generate ground truth annotations for testing data in VG ("data_rel_ground_vctree_predcls_vg_full") 
 
 ## For GQA
-The baseline github repo by Kang et al. do not cover GQA dataset. We will release our baseline with GQA dataset very soon!
+The baseline github repo by Kang et al. does not cover GQA dataset. We will release our baseline with GQA dataset very soon!
 <!---
 1. Go to "Gen_data_evidence/Gen_data_evidence/GQA"
 2. Copy "generate_meas_infer_triplet_GQA.py" for GQA in the run directory of the baseline (see github directory above). It will generate measurement results with associated measurement probabilities for VCTree PredCls in GQA. ("data_rel_meas_infer_vctree_predcls_GQA_full.mat")
