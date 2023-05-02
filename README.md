@@ -7,7 +7,7 @@ We generate measurements from the publicly available baselines released by Kang 
 You can download our extracted evidence data for VCTree model [here](https://drive.google.com/drive/folders/1-gIr7jz2Jf65mc1gJEcRh3iA0z4xr6TD?usp=share_link). You can also use the following steps for extracting evidence data from the baseline data by yourself.  
 
 ## For Visual Genome 
-1. Go to "Gen_data_evidence/Gen_data_evidence/" 
+1. Go to "Gen_data_evidence/" 
 2. Copy "generate_meas_infer_triplet.py" for VG in the run directory of the baseline (see github directory above). It will generate measurement results of testing images with associated measurement probabilities for specified baseline (imp, motif, vctree, ...), setting (predcls, sgcls, sgdet), dataset (vg) . The MATLAB data file will have the name "data_rel_meas_infer_*baseline*\_*setting*\_*dataset*.mat". An example is "data_rel_meas_infer_vctree_sgcls_vg.mat"
 3. Copy and run "generate_tripelts_ground.py" for VG in the same dir. It will generate ground truth annotations for testing data in VG ("data_rel_ground_vctree_sgcls_vg.mat") 
 
