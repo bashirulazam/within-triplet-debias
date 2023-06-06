@@ -4,7 +4,7 @@ clc
 
 model = 'vctree';
 dataset = 'vg';
-setting = "sgdet"; % or "sgcls", "sgdet"
+setting = "predcls"; % or "predcls", "sgcls", "sgdet"
 top = 100;
 suffix = strcat(model,'_',setting,'_',dataset);
 datapath = strcat('..\Data\',dataset,'\',model,'\',setting,'\');
