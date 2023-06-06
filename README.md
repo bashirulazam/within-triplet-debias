@@ -1,3 +1,7 @@
+# Introduction
+
+This is the github repo of our recently published work [Probabilistic Debiasing of Scene Graphs](https://openaccess.thecvf.com/content/CVPR2023/html/Biswas_Probabilistic_Debiasing_of_Scene_Graphs_CVPR_2023_paper.html) at CVPR 2023. We address the long-tailed distibution of scene graphs through within-triplet debiasing of measurement triplets. We perform experiments on Visual Genome and GQA dataset and achieve state-of-the-art debiased scene graphs. We release our codebase primarily developed in MATLAB. We extract the measurement results of baseline model using python code and store them in MAT file. Afterwards, we perform the inference, evaluate the scene graphs, and plot the recall of each relationship with MATLAB. 
+
 # Training and Testing
 
 We generate measurements from the publicly available baselines released by Kang et al. (Unbiased scene graph generation from biased training). The github link for baseline training and testing is https://github.com/KaihuaTang/Scene-Graph-Benchmark.pytorch
@@ -49,4 +53,3 @@ The baseline github repo by Kang et al. does not cover GQA dataset. We will rele
 2. You can select the model, setting, and dataset in the "run_post_inference.m". 
 3. Run "run_post_inference.m". It will take the measurements as input and produce inferred triplets with BN learnt from original and augmented samples. 
 	It will also calculate and plot the mean recall improvement. 
-
