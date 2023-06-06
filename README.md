@@ -49,13 +49,4 @@ The baseline github repo by Kang et al. does not cover GQA dataset. We will rele
 2. You can select the model, setting, and dataset in the "run_post_inference.m". 
 3. Run "run_post_inference.m". It will take the measurements as input and produce inferred triplets with BN learnt from original and augmented samples. 
 	It will also calculate and plot the mean recall improvement. 
-# Citation
-If you find our work useful, please cite with the following 
-@InProceedings{Biswas_2023_CVPR,
-    author    = {Biswas, Bashirul Azam and Ji, Qiang},
-    title     = {Probabilistic Debiasing of Scene Graphs},
-    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-    month     = {June},
-    year      = {2023},
-    pages     = {10429-10438}
-}
+
