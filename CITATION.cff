@@ -1,8 +1,1 @@
-@InProceedings{Biswas_2023_CVPR,
-    author    = {Biswas, Bashirul Azam and Ji, Qiang},
-    title     = {Probabilistic Debiasing of Scene Graphs},
-    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-    month     = {June},
-    year      = {2023},
-    pages     = {10429-10438}
-}
+
