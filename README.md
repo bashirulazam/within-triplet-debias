@@ -1,6 +1,6 @@
 # Introduction
 
-This is the github repo of our recently published work [Probabilistic Debiasing of Scene Graphs](https://openaccess.thecvf.com/content/CVPR2023/html/Biswas_Probabilistic_Debiasing_of_Scene_Graphs_CVPR_2023_paper.html) at CVPR 2023. We address the long-tailed distibution of scene graphs through within-triplet debiasing of measurement triplets. We perform experiments on Visual Genome and GQA dataset and achieve state-of-the-art debiased scene graphs. The codebase is primarily developed in MATLAB. The measurement results of the baseline models are extracted using python code and stored them in MAT file. Afterwards, we perform the inference, evaluate the scene graphs, and plot the recall of each relationship with MATLAB. 
+This is the github repo of our recently published work [Probabilistic Debiasing of Scene Graphs](https://openaccess.thecvf.com/content/CVPR2023/html/Biswas_Probabilistic_Debiasing_of_Scene_Graphs_CVPR_2023_paper.html) at CVPR 2023. We address the long-tailed distibution of scene graphs through within-triplet debiasing of measurement triplets. We perform experiments on Visual Genome and GQA dataset and achieve state-of-the-art debiased scene graphs. The codebase is primarily developed in MATLAB. The measurement results of the baseline models are extracted using python code and stored as MAT file. Afterwards, we perform the inference, evaluate the scene graphs, and plot the recall of each relationship with MATLAB. 
 
 # Training and Testing
 
