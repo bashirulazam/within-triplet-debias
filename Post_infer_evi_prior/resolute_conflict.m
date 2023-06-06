@@ -1,29 +1,6 @@
 function [resoluted_inferred_triplets,inferred_label_list] = resolute_conflict(inferred_triplets,measured_triplets,measured_relations_list,predicate_logits_list,obj_logits_list,measured_label_list,test_start,test_ind,top,method,dataset)
-%getting the right prior
-if strcmp(method,'reg')
-    if strcmp(dataset,'VG')
-        load('./Prior/VG/BN_priors.mat');
-        dict = jsondecode(fileread('VG-SGG-dicts.json'));
-    elseif strcmp(dataset,'GQA')
-        load('./Prior/GQA/BN_priors_GQA.mat')
-        dict = jsondecode(fileread('GQA-SGG-dicts.json'));
-
-    else
-        disp('wrong dataset')
-    end
-elseif strcmp(method,'emb') 
-    if strcmp(dataset,'VG')
-        load('./Prior/VG/BN_priors_emb.mat');
-        dict = jsondecode(fileread('VG-SGG-dicts.json'));
-    elseif strcmp(dataset,'GQA')
-        load('./Prior/GQA/BN_priors_emb_GQA.mat')
-        dict = jsondecode(fileread('GQA-SGG-dicts.json'));
-    else
-        disp('wrong dataset')
-    end
-else
-    disp('wrong name in the method')
-end
+%load prior with original/augmented samples for vg/gqa dataset
+load(strcat('./Prior/BN_priors_',method,'_',dataset,'.mat'))
 
 
 for i = test_start:test_ind

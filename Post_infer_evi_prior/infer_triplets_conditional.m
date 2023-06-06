@@ -1,31 +1,9 @@
 function [inferred_triplets] = infer_triplets_conditional(measured_triplets,predicate_logits_list,top,test_start,test_end,method,dataset)
 
 
-%getting the right prior
-if strcmp(method,'reg')
-    if strcmp(dataset,'VG')
-        load('./Prior/VG/BN_priors.mat');
-        dict = jsondecode(fileread('VG-SGG-dicts.json'));
-    elseif strcmp(dataset,'GQA')
-        load('./Prior/GQA/BN_priors_GQA.mat')
-        dict = jsondecode(fileread('GQA-SGG-dicts.json'));
+%load prior with original/augmented samples for vg/gqa dataset
+load(strcat('./Prior/BN_priors_',method,'_',dataset,'.mat'))
 
-    else
-        disp('wrong dataset')
-    end
-elseif strcmp(method,'emb') 
-    if strcmp(dataset,'VG')
-        load('./Prior/VG/BN_priors_emb.mat');
-        dict = jsondecode(fileread('VG-SGG-dicts.json'));
-    elseif strcmp(dataset,'GQA')
-        load('./Prior/GQA/BN_priors_emb_GQA.mat')
-        dict = jsondecode(fileread('GQA-SGG-dicts.json'));
-    else
-        disp('wrong dataset')
-    end
-else
-    disp('wrong name in the method')
-end
 
 
 NS = 150;

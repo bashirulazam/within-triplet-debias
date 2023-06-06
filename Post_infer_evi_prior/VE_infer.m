@@ -1,4 +1,4 @@
-function [s,r,o] = VE_infer_exp1_v3(pr_r,pr_r_so,r_sm,r_om,r_rm,sm,rm,om)
+function [s,r,o] = VE_infer(pr_r,pr_r_so,r_sm,r_om,r_rm,sm,rm,om)
 NS = 150;
 NO = 150;
 NR = 50;
