@@ -2,9 +2,9 @@ clear all
 close all
 clc
 
-model = 'vctree';
-dataset = 'vg';
-setting = "predcls"; % or "predcls", "sgcls", "sgdet"
+model = 'vctree'; % or "imp", "motif", "vctree", "causal_motif,","dlfe_motif", "bgnn"
+dataset = 'vg'; % or "vg", "gqa", 
+setting = "sgdet"; % or "predcls", "sgcls", "sgdet"
 top = 100;
 suffix = strcat(model,'_',setting,'_',dataset);
 datapath = strcat('..\Data\',dataset,'\',model,'\',setting,'\');
@@ -15,7 +15,7 @@ load(strcat(datapath,'data_rel_meas_infer_',suffix,'.mat'))
 %loading ground truth results
 load(strcat(datapath,'data_rel_ground_',suffix,'.mat'))
 
-if strcmp(setting,'sgdet') && strcmp(dataset,'vg') 
+if strcmp(setting,'sgdet') && strcmp(dataset,'vg') && ~strcmp(model,'dlfe_motif') && ~strcmp(model,'bgnn')
     [predicate_logits_list, obj_logits_list] = combine_sgdet_probs(datapath,suffix);
 end
 
@@ -45,12 +45,18 @@ title_part = 'measured';
 % learnt from origial samples
 method = 'org';
 title_part = 'inferred-org';
-if strcmp(setting,'sgcls') || strcmp(setting,'sgdet')
-    [inferred_triplets] = infer_triplets(measured_triplets,measured_relations_list,obj_logits_list,predicate_logits_list,top,test_start,test_end,method,dataset);
-    [resoluted_inferred_triplets] = resolute_conflict(inferred_triplets,measured_triplets,measured_relations_list,predicate_logits_list,obj_logits_list,measured_label_list,test_start,test_end,top,method,dataset);
+if exist('obj_logits_list','var') %For SGCLS and SGDet of every baseline except DLFE_MOTIF and BGNN. We did not utilize object probs for these models due to high complexity
+    % Within-Triplet Inference of each triplet
+    [inferred_triplets] = infer_triplets(measured_triplets,measured_relations_list,obj_logits_list,predicate_logits_list,top,test_start,test_end,method,dataset); 
+    % Conflict resolution with constraint optimization
+    [resoluted_inferred_triplets] = resolute_conflict(inferred_triplets,measured_triplets,measured_relations_list,predicate_logits_list,obj_logits_list,measured_label_list,test_start,test_end,top,method,dataset); 
+    % Evaluation
     [recall_infer,mean_recall_infer,correct_relations_inferred,correct_relations_inferred_all,total_ground_truth_relations_all,recall_infer_per_rel,cat_IA_cat,inferred_aligned_triplets] = compute_recalls(resoluted_inferred_triplets,measured_triplets_box_list,ground_rel_data,ground_triplets_box_list,test_start,test_end,top,dict,title_part);
-elseif strcmp(setting,'predcls')
+elseif strcmp(setting,'predcls') || strcmp(model,'dlfe_motif') || strcmp(model,'bgnn') %For PredCls of every baseline and all settings for DLFE_MOTIF and BGNN. 
+    % Within-Triplet Inference of each triplet. No need to perform
+    % constraint optimzation since sub. and obj. are not modified
     [inferred_triplets] = infer_triplets_conditional(measured_triplets,predicate_logits_list,top,test_start,test_end,method,dataset);
+    % Evaluation
     [recall_infer,mean_recall_infer,correct_relations_inferred,correct_relations_inferred_all,total_ground_truth_relations_all,recall_infer_per_rel,cat_IA_cat,inferred_aligned_triplets] = compute_recalls(inferred_triplets,measured_triplets_box_list,ground_rel_data,ground_triplets_box_list,test_start,test_end,top,dict,title_part);
 end
 
@@ -58,12 +64,18 @@ end
 % learnt from augmented samples
 method = 'aug';
 title_part = 'inferred-aug';
-if strcmp(setting,'sgcls') || strcmp(setting,'sgdet')
+if exist('obj_logits_list','var')
+    % Within-Triplet Inference of each triplet
     [inferred_triplets_emb] = infer_triplets(measured_triplets,measured_relations_list,obj_logits_list,predicate_logits_list,top,test_start,test_end,method,dataset);
+    % constraint optimzation since sub. and obj. are not modified
     [resoluted_inferred_triplets_emb] = resolute_conflict(inferred_triplets_emb,measured_triplets,measured_relations_list,predicate_logits_list,obj_logits_list,measured_label_list,test_start,test_end,top,method,dataset);
+    % Evaluation
     [recall_infer_emb,mean_recall_infer_emb,correct_relations_inferred_emb,correct_relations_inferred_all_emb,total_ground_truth_relations_all,recall_infer_emb_per_rel,cat_IA_cat,inferred_aligned_triplets] = compute_recalls(resoluted_inferred_triplets_emb,measured_triplets_box_list,ground_rel_data,ground_triplets_box_list,test_start,test_end,top,dict,title_part);    
-elseif strcmp(setting,'predcls')
+elseif strcmp(setting,'predcls') || strcmp(model,'dlfe_motif') || strcmp(model,'bgnn')
+    % Within-Triplet Inference of each triplet. No need to perform
+    % constraint optimzation since sub. and obj. are not modified
     [inferred_triplets_emb] = infer_triplets_conditional(measured_triplets,predicate_logits_list,top,test_start,test_end,method,dataset);
+    % Evaluation
     [recall_infer_emb,mean_recall_infer_emb,correct_relations_inferred_emb,correct_relations_inferred_all_emb,total_ground_truth_relations_all,recall_infer_emb_per_rel,cat_IA_cat,inferred_aligned_triplets] = compute_recalls(inferred_triplets_emb,measured_triplets_box_list,ground_rel_data,ground_triplets_box_list,test_start,test_end,top,dict,title_part);    
 end
         
