@@ -4,19 +4,23 @@ This is the github repo of our recently published work [Probabilistic Debiasing 
 
 # Training and Testing
 
-We generate measurements from the publicly available baselines released by Kang et al. (Unbiased scene graph generation from biased training). The github link for baseline training and testing is https://github.com/KaihuaTang/Scene-Graph-Benchmark.pytorch
+We generate measurements from the following publicly available baselines.
+1. IMP, MOTIF, VCTree, Causal-MOTIF (TDE-MOTIF) -- Released by Kang et al. (Unbiased scene graph generation from biased training). The github link is https://github.com/KaihuaTang/Scene-Graph-Benchmark.pytorch
+2. DLFE_MOTIF -- Released by Chiou et al. (Recovering the Unbiased Scene Graphs from the Biased Ones). The github link is https://github.com/coldmanck/recovering-unbiased-scene-graphs
+3. BGNN -- Released by Li et al. (Bipartite Graph Network with Adaptive Message Passing for Unbiased Scene Graph Generation). The github link is https://github.com/SHTUPLUS/PySGG
+
 
 # Uncertain evidence from baseline model
 
-You can download our extracted evidence data for several baselines [here](https://rpi.box.com/s/r0uyi8eyyyj1334dubvfm905mcb92h7p). You can also use the following steps for extracting evidence data from the baseline data by yourself.  
+You can download our extracted evidence data for the above-mentioned baselines [here](https://rpi.box.com/s/r0uyi8eyyyj1334dubvfm905mcb92h7p). You can also use the following steps for extracting evidence data from the baseline data by yourself.  
 
 ## For Visual Genome 
 1. Go to "Gen_data_evidence/" 
-2. Copy "generate_meas_infer_triplet.py" for VG in the run directory of the baseline (see github directory above). It will generate measurement results of testing images with associated measurement probabilities for specified baseline (imp, motif, vctree, ...), setting (predcls, sgcls, sgdet), dataset (vg) . The MATLAB data file will have the name "data_rel_meas_infer_*baseline*\_*setting*\_*dataset*.mat". An example is "data_rel_meas_infer_vctree_sgcls_vg.mat"
-3. Copy and run "generate_tripelts_ground.py" for VG in the same dir. It will generate ground truth annotations for testing data in VG ("data_rel_ground_vctree_sgcls_vg.mat") 
+2. Copy "generate_meas_infer_triplet.py" for VG in the run directory of the baseline (see github directories above). It will generate measurement results of testing images with associated measurement probabilities for specified baseline (imp, motif, vctree, ...), setting (predcls, sgcls, sgdet), and dataset (vg,gqa) . The MATLAB data file will have the name "data_rel_meas_infer_*baseline*\_*setting*\_*dataset*.mat". An example is "data_rel_meas_infer_vctree_sgcls_vg.mat"
+3. Copy and run "generate_tripelts_ground.py" for VG in the same dir. It will generate ground truth annotations for testing data in VG. An example is "data_rel_ground_vctree_sgcls_vg.mat" 
 
 ## For GQA
-The baseline github repo by Kang et al. does not cover GQA dataset. We will release our baseline with GQA dataset very soon!
+The baseline github repos above does not cover GQA dataset. We will release our baselines with GQA dataset very soon!
 <!---
 1. Go to "Gen_data_evidence/Gen_data_evidence/GQA"
 2. Copy "generate_meas_infer_triplet_GQA.py" for GQA in the run directory of the baseline (see github directory above). It will generate measurement results with associated measurement probabilities for VCTree PredCls in GQA. ("data_rel_meas_infer_vctree_predcls_GQA_full.mat")
