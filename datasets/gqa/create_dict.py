@@ -2,9 +2,7 @@ import json
 import numpy as np
 train_file = open('train_sceneGraphs.json')
 train_data = json.load(train_file)
-dict_file = open('VG-SGG-dicts.json')
-dict = json.load(dict_file)
-#obj_dict = list(dict['label_to_idx'].keys())
+
 obj_count = {}
 rel_count = {}
 att_count = {}
@@ -41,9 +39,7 @@ for im in range(0,M):
 
 val_file = open('val_sceneGraphs.json')
 val_data = json.load(val_file)
-dict_file = open('VG-SGG-dicts.json')
-dict = json.load(dict_file)
-#obj_dict = list(dict['label_to_idx'].keys())
+
 image_ids = list(val_data.keys())
 M = len(image_ids)
 for im in range(0,M):
