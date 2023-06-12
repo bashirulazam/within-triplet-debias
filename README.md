@@ -5,7 +5,7 @@ This is the github repo of our recently published work [Probabilistic Debiasing 
 # Baseline Models
 
 We generate measurements from the following publicly available baselines.
-1. IMP, MOTIF, VCTree, Causal-MOTIF (TDE-MOTIF) -- Released by Kang et al. (Unbiased scene graph generation from biased training). The github link is https://github.com/KaihuaTang/Scene-Graph-Benchmark.pytorch
+1. IMP, MOTIF, VCTree, Causal-MOTIF (TDE-MOTIF) -- Released by Tang et al. (Unbiased scene graph generation from biased training). The github link is https://github.com/KaihuaTang/Scene-Graph-Benchmark.pytorch
 2. DLFE_MOTIF -- Released by Chiou et al. (Recovering the Unbiased Scene Graphs from the Biased Ones). The github link is https://github.com/coldmanck/recovering-unbiased-scene-graphs
 3. BGNN -- Released by Li et al. (Bipartite Graph Network with Adaptive Message Passing for Unbiased Scene Graph Generation). The github link is https://github.com/SHTUPLUS/PySGG
 
