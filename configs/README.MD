@@ -1,1 +1,1 @@
-Two configurations files for Visual Genome and GQA is here
+Two configuration files for Visual Genome and GQA are here
